@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1800
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetAlpine", "AspNetAlpine\AspNetAlpine.csproj", "{12738178-2BF5-449D-9A39-590039C1A7DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12738178-2BF5-449D-9A39-590039C1A7DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12738178-2BF5-449D-9A39-590039C1A7DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12738178-2BF5-449D-9A39-590039C1A7DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12738178-2BF5-449D-9A39-590039C1A7DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB7A9FEB-65F9-4A58-8AD4-70AF34E8FBE2}
+	EndGlobalSection
+EndGlobal

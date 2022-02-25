@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/contact.ctrl.js")"></script>
+}
+
+<div class="row" x-data="contactsCtrl()">
+    <div class="col-12">
+        <form>
+            <input id="id_text" type="text" placeholder="type here" x-model="formModel.text" class="form-control" />
+            <select id="id_type" x-model="formModel.type" class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+            <fieldset>
+                <legend>Select option</legend>
+                <label for="id_radio1">
+                    Option 1
+                    <input id="id_radio1" name="options" type="radio" class="form-check" />
+                </label>
+                <label for="id_radio2">
+                    Option 2
+                    <input id="id_radio2" name="options" type="radio" class="form-check" />
+                </label>
+                <label for="id_radio3">
+                    Option 3
+                    <input id="id_radio3" name="options" type="radio" class="form-check" />
+                </label>
+            </fieldset>
+            <label for="id_enabled">Enable</label>
+            <input id="id_enabled" type="checkbox" x-model="formModel.enabled" class="form-check" />
+            <button x-on:click="onSendButtonClicked" class="btn btn-primary">SEND</button>
+        </form>
+    </div>
+</div>
