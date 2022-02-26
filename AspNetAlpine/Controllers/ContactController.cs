@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AspNetAlpine.Models;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace AspNetAlpine.Controllers
@@ -18,7 +19,7 @@ namespace AspNetAlpine.Controllers
         }
 
         // POST: api/Contact
-        public void Post([FromBody]string value)
+        public void Post([FromBody]PostContactReq value)
         {
         }
 
@@ -34,9 +35,17 @@ namespace AspNetAlpine.Controllers
 
         // GET: api/Contact/type
         [Route("~/api/contact/type")]
-        public IEnumerable<string> GetTypeOfContact()
+        public IEnumerable<ContactTypeRes> GetTypeOfContact()
         {
-            return new string[] { "email", "home", "work", "fax", "IM" };
+            return new[] {
+                new ContactTypeRes { Id = (int)ContactType.None, Description = ContactType.None.ToString() },
+                new ContactTypeRes { Id = (int)ContactType.Unknown, Description = ContactType.Unknown.ToString() },
+                new ContactTypeRes { Id = (int)ContactType.Email, Description = ContactType.Email.ToString() },
+                new ContactTypeRes { Id = (int)ContactType.Fax, Description = ContactType.Fax.ToString() },
+                new ContactTypeRes { Id = (int)ContactType.IM, Description = ContactType.IM.ToString() },
+                new ContactTypeRes { Id = (int)ContactType.TelephoneHome, Description = ContactType.TelephoneHome.ToString()},
+                new ContactTypeRes { Id = (int)ContactType.TelephoneWork, Description = ContactType.TelephoneWork.ToString() }
+            };
         }
     }
 }

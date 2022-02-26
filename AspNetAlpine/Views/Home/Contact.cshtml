@@ -13,8 +13,8 @@
         <form @@submit.prevent="console.log('form submitted')">
             <input id="id_text" type="text" placeholder="type here" x-model="formModel.text" class="form-control" />
             <select id="id_type" x-model="formModel.type" x-init="() => { setContactsType(); }" class="form-control">
-                <template x-for="ct in contactsType" :key="ct">
-                    <option :value="ct" x-text="ct"></option>
+                <template x-for="ct in contactsType" :key="ct.Id">
+                    <option :value="ct.Id" x-text="ct.Description"></option>
                 </template>
             </select>
             <fieldset>
