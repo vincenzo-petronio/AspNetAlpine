@@ -9,7 +9,6 @@
         data: []
     }).render(document.getElementById("id_grid"));
 
-    //#region [X-DATA]
     return {
         formModel: {},
         contactsType: [],
@@ -67,8 +66,8 @@
                     this.contacts = response;
                     //return true;
                 })
-                .then((response) => {
-                    console.log('Set grid');
+                .then(() => {
+                    console.log('Update grid');
                     this.updateGridTable();
                 })
                 .catch((error) => {
@@ -82,5 +81,4 @@
             }).forceRender();
         }
     }
-    //#endregion
 }

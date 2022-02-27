@@ -19,9 +19,25 @@
                 });
         },
 
-        showDetailsPanel: function (e) {
-            console.log(e.target);
-            this.showDetails = !this.showDetails;
+        setSelectedComment: async function (id) {
+            return fetch('https://jsonplaceholder.typicode.com/comments/' + id)
+                .then((response) => {
+                    console.log(response);
+                    return response.json();
+                })
+                .then((response) => {
+                    console.log(response);
+                    this.selectedComment = response;
+                })
+                .catch((ex) => {
+                    console.log(ex);
+                });
+        },
+
+        showDetailsPanel: async function (id) {
+            console.log(id);
+            this.showDetails = true;
+            await this.setSelectedComment(id); 
         }
     }
 }

@@ -13,7 +13,7 @@
         <br />
         <br />
         <template x-for="comment in comments" :key="comment.id">
-            <a href="#" class="list-group-item list-group-item-action" x-on:click="showDetailsPanel">
+            <a href="#" class="list-group-item list-group-item-action" x-on:click="showDetailsPanel(comment.id)">
                 <p><b x-text="comment.name"></b></p>
                 <br />
                 <p x-text="comment.body"></p>
@@ -22,7 +22,10 @@
     </div>
     <div class="col-md-8">
         <div class="panel" x-show="showDetails">
-            <h3>dettaglio</h3>
+            <h3 x-text="selectedComment.id"></h3>
+            <p x-text="selectedComment.postId"></p>
+            <p x-text="selectedComment.email"></p>
+            <p x-text="selectedComment.body"></p>
         </div>
     </div>
 </div>
