@@ -1,11 +1,24 @@
 ﻿function contactsCtrl() {
+    const gridTable = new gridjs.Grid({
+        columns: [
+            { id: 'Type', name: 'Type' },
+            { id: 'Text', name: 'Text' },
+            { id: 'Option', name: 'Option' },
+            { id: 'Enabled', name: 'Enable', formatter: (cell) => cell.toString() },
+        ],
+        data: []
+    }).render(document.getElementById("id_grid"));
+
+    //#region [X-DATA]
     return {
         formModel: {},
         contactsType: [],
+        contacts: [],
 
         onSendButtonClicked: function () {
             console.log(JSON.stringify(this.formModel));
-            this.postContact(this.formModel);
+            this.postContact(this.formModel)
+                .then(() => { this.setContacts(); });
         },
 
         setContactsType: async function () {
@@ -43,6 +56,31 @@
                 });
         },
 
-        getContacts: function () { },
+        setContacts: async function () {
+            await fetch('http://' + window.location.host + '/api/contact')
+                .then((response) => {
+                    console.log(response);
+                    return response.json();
+                })
+                .then((response) => {
+                    console.log(response);
+                    this.contacts = response;
+                    //return true;
+                })
+                .then((response) => {
+                    console.log('Set grid');
+                    this.updateGridTable();
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
+
+        updateGridTable: function () {
+            gridTable.updateConfig({
+                data: this.contacts
+            }).forceRender();
+        }
     }
+    //#endregion
 }

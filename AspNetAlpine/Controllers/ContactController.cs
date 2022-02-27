@@ -1,5 +1,6 @@
 ﻿using AspNetAlpine.Models;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Http;
 
 namespace AspNetAlpine.Controllers
@@ -7,9 +8,14 @@ namespace AspNetAlpine.Controllers
     public class ContactController : ApiController
     {
         // GET: api/Contact
-        public IEnumerable<string> Get()
+        public List<Contact> Get()
         {
-            return new string[] { "value1", "value2" };
+            if (HttpContext.Current.Session["ListContacts"] == null)
+            {
+                HttpContext.Current.Session.Add("ListContacts", new List<Contact>());
+            }
+            var result = HttpContext.Current.Session["ListContacts"] as List<Contact>;
+            return result;
         }
 
         // GET: api/Contact/5
@@ -21,11 +27,15 @@ namespace AspNetAlpine.Controllers
         // POST: api/Contact
         public void Post([FromBody]PostContactReq value)
         {
+            var listContacts = this.Get();
+            listContacts.Add(value);
+            HttpContext.Current.Session.Add("ListContacts", listContacts);
         }
 
         // PUT: api/Contact/5
         public void Put(int id, [FromBody]string value)
         {
+
         }
 
         // DELETE: api/Contact/5

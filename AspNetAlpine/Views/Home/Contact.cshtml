@@ -8,8 +8,8 @@
     <script type="text/javascript" src="@Url.Content("~/Scripts/contact.ctrl.js")"></script>
 }
 
-<div class="row" x-data="contactsCtrl()">
-    <div class="col-12">
+<div class="row" x-data="contactsCtrl()" x-init="() => { setContacts(); }">
+    <div class="col-6">
         <form @@submit.prevent="console.log('form submitted')">
             <input id="id_text" type="text" placeholder="type here" x-model="formModel.text" class="form-control" />
             <select id="id_type" x-model="formModel.type" x-init="() => { setContactsType(); }" class="form-control">
@@ -36,5 +36,8 @@
             <input id="id_enabled" type="checkbox" x-model="formModel.enabled" class="form-check" />
             <button x-on:click="onSendButtonClicked" class="btn btn-primary">SEND</button>
         </form>
+    </div>
+    <div class="col-6">
+        <div id="id_grid"></div>
     </div>
 </div>
