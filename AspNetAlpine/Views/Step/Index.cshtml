@@ -1,0 +1,40 @@
+﻿@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/step.ctrl.js")"></script>
+}
+
+@{
+    ViewBag.Title = "Multi Step";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+@*
+    @Html.Partial("StepOne")
+*@
+
+@*
+    @{
+        Html.RenderPartial("StepOne");
+    }
+*@
+
+@*
+    @{
+        Html.RenderAction("GetStepOne");
+    }
+*@
+
+<div class="row" x-data="stepCtrl()">
+    <div class="col-12">
+        <p x-text="message"></p>
+        <input class="form-control" type="text" :bind="data.master" />
+        <div class="mt-5">
+            <button class="btn btn-secondary" x-on:click="OnBackButtonClicked">Back</button>
+            <button class="btn btn-primary" x-on:click="OnNextButtonClicked">Next</button>
+            @*
+                @Html.ActionLink("OnBack", "Back", "Step", new { stepId = ViewBag.StepId }, new { @class = "nav-link" })
+                @Html.ActionLink("OnNext", "Next", "Step", new { stepId = ViewBag.StepId }, new { @class = "nav-link" })
+            *@
+        </div>
+    </div>
+</div>
