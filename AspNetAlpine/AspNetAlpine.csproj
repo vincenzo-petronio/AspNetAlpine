@@ -213,6 +213,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Step\Index.cshtml" />
     <Content Include="Views\Step\StepOne.cshtml" />
+    <Content Include="Views\Step\StepTwo.cshtml" />
+    <Content Include="Views\Step\StepThree.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

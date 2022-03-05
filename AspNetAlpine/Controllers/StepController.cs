@@ -28,7 +28,7 @@ namespace AspNetAlpine.Controllers
                 case 2:
                     {
                         ViewBag.StepId = 2;
-                        return PartialView("StepOne");
+                        return PartialView("StepTwo");
                     }
             }
         }
@@ -47,6 +47,11 @@ namespace AspNetAlpine.Controllers
                     {
                         ViewBag.StepId = 2;
                         return PartialView("StepTwo");
+                    }
+                case 3:
+                    {
+                        ViewBag.StepId = 3;
+                        return PartialView("StepThree");
                     }
             }
         }
