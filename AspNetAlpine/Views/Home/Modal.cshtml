@@ -1,0 +1,32 @@
+﻿@section scripts {
+    <script type="text/javascript"></script>
+}
+<div class="mt-4" x-data="{
+        open: true,
+        data: {}
+     }"
+     x-on:keyup.escape.window="open = false"
+     x-on:myevent.window="data.mytext = $event.detail.mytext">
+    <span x-text="data.mytext"></span>
+</div>
+<div x-data="{ mytext: ''}">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#id_modal">
+        Open modal
+    </button>
+    <div id="id_modal" class="modal fade" tabindex="-1" x-on:click.outside="open = false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" x-model="mytext" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" x-on:click="$dispatch('myevent', {mytext})">SAVE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

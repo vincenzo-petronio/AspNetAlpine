@@ -27,7 +27,7 @@
             return data;
         },
 
-        OnStepOneSubmitClicked: function () {
+        OnSubmitButtonClicked: function () {
             //$event.preventDefault();
             console.log(JSON.stringify(this.data));
         }

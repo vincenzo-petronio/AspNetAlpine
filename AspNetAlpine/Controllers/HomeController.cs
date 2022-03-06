@@ -26,5 +26,10 @@ namespace AspNetAlpine.Controllers
 
             return View();
         }
+
+        public ActionResult Modal()
+        {
+            return View();
+        }
     }
 }

@@ -215,6 +215,7 @@
     <Content Include="Views\Step\StepOne.cshtml" />
     <Content Include="Views\Step\StepTwo.cshtml" />
     <Content Include="Views\Step\StepThree.cshtml" />
+    <Content Include="Views\Home\Modal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
