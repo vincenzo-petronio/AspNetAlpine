@@ -2,6 +2,7 @@
     return {
         stepId: 0,
         message: 'step controller message',
+        progress: 0,
         data: {},
 
         OnBackButtonClicked: function () {
@@ -25,5 +26,10 @@
             let data = await response.text();
             return data;
         },
+
+        OnStepOneSubmitClicked: function () {
+            //$event.preventDefault();
+            console.log(JSON.stringify(this.data));
+        }
     }
 }

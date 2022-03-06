@@ -12,11 +12,13 @@
     <div class="col-6">
         <form @@submit.prevent="console.log('form submitted')">
             <input id="id_text" type="text" placeholder="type here" x-model="formModel.text" class="form-control" />
+            <br />
             <select id="id_type" x-model="formModel.type" x-init="() => { setContactsType(); }" class="form-control">
                 <template x-for="ct in contactsType" :key="ct.Id">
                     <option :value="ct.Id" x-text="ct.Description"></option>
                 </template>
             </select>
+            <br />
             <fieldset>
                 <legend>Select option</legend>
                 <label for="id_radio1">
@@ -32,8 +34,10 @@
                     <input id="id_radio3" name="options" type="radio" class="form-check" x-model="formModel.option" value="opt3" />
                 </label>
             </fieldset>
+            <br />
             <label for="id_enabled">Enable</label>
             <input id="id_enabled" type="checkbox" x-model="formModel.enabled" class="form-check" />
+            <br />
             <button x-on:click="onSendButtonClicked" class="btn btn-primary">SEND</button>
         </form>
     </div>

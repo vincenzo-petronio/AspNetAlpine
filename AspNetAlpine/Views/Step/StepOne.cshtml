@@ -1,2 +1,8 @@
-﻿<p>Page One</p>
+﻿<h3>Page One</h3>
 <p x-text="stepId"></p>
+
+<form x-on:submit.prevent="OnStepOneSubmitClicked">
+    <input class="form-control" type="text" x-model="data.stepone" />
+    <br />
+    <button class="btn btn-primary" type="submit" x-bind:disabled="data.stepone === ''">SAVE</button>
+</form>
