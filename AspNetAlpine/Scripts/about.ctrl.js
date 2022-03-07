@@ -3,6 +3,7 @@
         comments: [],
         showDetails: false,
         selectedComment: {},
+        query: '',
 
         setList: async function () {
             return fetch('https://jsonplaceholder.typicode.com/comments')
@@ -37,7 +38,13 @@
         showDetailsPanel: async function (id) {
             console.log(id);
             this.showDetails = true;
-            await this.setSelectedComment(id); 
+            await this.setSelectedComment(id);
+        },
+
+        init() {
+            this.$watch('query', (query) => {
+                this.comments = this.comments.filter(c => c.name.includes(query));
+            })
         }
     }
 }
