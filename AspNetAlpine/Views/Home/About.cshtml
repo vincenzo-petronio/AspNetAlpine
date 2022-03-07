@@ -12,7 +12,7 @@
         <button @@click="setList()">Refresh</button>
         <br />
         <br />
-        <input type="text" placeholder="Search name" x-model="query" /><p x-show="query.length"><span x-text="comments.length"></span> results</p>
+        <input type="text" placeholder="Search name" x-model.debounce.400="query" /><p x-show="query.length"><span x-text="comments.length"></span> results</p>
         <br />
         <template x-for="comment in comments" :key="comment.id">
             <a href="#" class="list-group-item list-group-item-action" x-on:click="showDetailsPanel(comment.id)">

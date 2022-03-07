@@ -43,6 +43,9 @@
 
         init() {
             this.$watch('query', (query) => {
+                if (query === '') {
+                    return;
+                }
                 this.comments = this.comments.filter(c => c.name.includes(query));
             })
         }
