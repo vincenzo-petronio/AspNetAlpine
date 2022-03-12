@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Store";
+}
+
+@*
+    @section scripts {
+        <script type="text/javascript" src="@Url.Content("~/Scripts/store.ctrl.js")"></script>
+    }
+*@
+
+<h2>@ViewBag.Title.</h2>
+
+<div x-data>
+    <button class="btn btn-primary" x-on:click="$store.message.show()">toggle message</button>
+    <p x-show="$store.message.visible" x-text="$store.message.title"></p>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            console.log('alpine:init');
+            Alpine.store('message', {
+                title: 'hello alpine store!',
+                visible: false,
+                show() {
+                    this.visible = !this.visible;
+                }
+            });
+        });
+    </script>
+</div>

@@ -27,6 +27,13 @@ namespace AspNetAlpine.Controllers
             return View();
         }
 
+        public ActionResult Store()
+        {
+            ViewBag.Message = "Your store page.";
+
+            return View();
+        }
+
         public ActionResult Modal()
         {
             return View();

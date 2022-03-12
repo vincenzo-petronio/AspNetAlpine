@@ -197,6 +197,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\step.ctrl.js" />
+    <Content Include="Scripts\store.ctrl.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -216,6 +217,7 @@
     <Content Include="Views\Step\StepTwo.cshtml" />
     <Content Include="Views\Step\StepThree.cshtml" />
     <Content Include="Views\Home\Modal.cshtml" />
+    <Content Include="Views\Home\Store.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
